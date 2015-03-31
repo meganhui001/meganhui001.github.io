@@ -20,7 +20,7 @@ var platforms = [],
 	image = document.getElementById("sprite"),
 	player, platformCount = 10,
 	position = 0,
-	gravity = 0.4,
+	gravity = 0.35,
 	animloop,
 	flag = 0,
 	menuloop, broken = 0,
@@ -141,7 +141,7 @@ function Platform() {
 	//Setting the probability of which type of platforms should be shown at what score
 	if (score >= 5000) this.types = [2, 2, 2, 2, 2, 2, 2, 2];
 	else if (score >= 2000 && score < 5000) this.types = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
-	else if (score >= 1000 && score < 2000) this.types = [2, 2, 2, 2, 2, 2, 2, 2, 2];
+	else if (score >= 1000 && score < 2000) this.types = [2, 2, 2, 2, 2, 2, 2, 2];
 	else if (score >= 500 && score < 1000) this.types = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
 	else if (score >= 100 && score < 500) this.types = [2, 2, 2, 2, 2, 2];
 	else this.types = [2];
@@ -150,7 +150,7 @@ function Platform() {
 
 	//We can't have two consecutive breakable platforms otherwise it will be impossible to reach another platform sometimes!
 	if (this.type == 3 && broken < 1) {
-		//broken++;
+		broken++;
 	} else if (this.type == 3 && broken >= 1) {
 		this.type = 1;
 		broken = 0;
@@ -265,10 +265,10 @@ function init() {
 		document.onkeyup = function(e) {
 			var key = e.keyCode;
 		
-			if (key == 65) {
+			if (key == 37) {
 				dir = "left";
 				player.isMovingLeft = false;
-			} else if (key == 68) {
+			} else if (key == 39) {
 				dir = "right";
 				player.isMovingRight = false;
 			}
@@ -277,7 +277,7 @@ function init() {
 		//Accelerations produces when the user hold the keys
 		if (player.isMovingLeft === true) {
 			player.x += player.vx;
-			player.vx -= 0.1;
+			player.vx -= 0.15;
 		} else {
 			player.x += player.vx;
 			if (player.vx < 0) player.vx += 0.1;
@@ -285,17 +285,17 @@ function init() {
 
 		if (player.isMovingRight === true) {
 			player.x += player.vx;
-			player.vx += 0.1;
+			player.vx += 0.15;
 		} else {
 			player.x += player.vx;
-			if (player.vx > 0) player.vx -= 0.1 ;
+			if (player.vx > 0) player.vx -= 0.1;
 		}
 
 		// Speed limits!
-		if(player.vx > 2)
-			player.vx = 1;
-		else if(player.vx < -2)
-			player.vx = -1;
+		if(player.vx > 8)
+			player.vx = 8;
+		else if(player.vx < -8)
+			player.vx = -8;
 
 		//console.log(player.vx);
 		
