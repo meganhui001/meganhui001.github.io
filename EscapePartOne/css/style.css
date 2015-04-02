@@ -1,0 +1,30 @@
+@import 
+url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+
+body {background-image: url(http://ak9.picdn.net/shutterstock/videos/508573/preview/stock-footage-a-very-realistic-travel-through-the-stars-of-the-milky-way-in-the-background-two-distant-galaxies.jpg);
+      background-colour: black;
+      color: #FFFFFF;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 30px;
+}
+
+h1 {border-top-style: double;
+    border-top-width: 20px;
+    border-top-color: #FFFFFF;
+    border-bottom-style: double;
+    border-bottom-width: 20px;
+    border-bottom-color: #FFFFFF;
+    text-shadow: 16px 8px #909090;
+}
+@-webkit-keyframes blinker {  
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+/* The element to apply the animation to */
+h4#PE {
+  -webkit-animation-name: blinker;  
+  -webkit-animation-iteration-count: infinite;  
+  -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+  -webkit-animation-duration: 2s; 
+}
