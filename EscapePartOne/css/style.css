@@ -1,8 +1,7 @@
 @import 
 url(http://fonts.googleapis.com/css?family=Press+Start+2P);
 
-body {background-image: url(http://ak9.picdn.net/shutterstock/videos/508573/preview/stock-footage-a-very-realistic-travel-through-the-stars-of-the-milky-way-in-the-background-two-distant-galaxies.jpg);
-      background-colour: black;
+body {background-color: black;
       color: #FFFFFF;
       font-family: 'Press Start 2P', cursive;
       font-size: 30px;
